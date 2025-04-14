@@ -47,7 +47,7 @@ git commit -m "Add ArUco marker detection logic"
 
 ---
 
-## ✅ 5. Upload Your Changes (Push) (Enough)
+## ✅ 5. Upload Your Changes (Push) (Stop at Step 5)
 
 ```bash
 git push origin feature/aruco-detection
