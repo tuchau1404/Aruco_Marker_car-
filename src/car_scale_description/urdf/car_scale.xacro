@@ -1,0 +1,440 @@
+<?xml version="1.0" ?>
+<robot name="car_scale" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <xacro:include filename="$(find car_scale_description)/urdf/car_footprint.xacro" />
+  <xacro:include filename="$(find car_scale_description)/urdf/materials.xacro" />
+  <xacro:include filename="$(find car_scale_description)/urdf/car_scale.trans" />
+  <xacro:include filename="$(find car_scale_description)/urdf/car_scale.gazebo" />
+  <xacro:include filename="$(find car_scale_description)/urdf/camera.xacro" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.3184486651094718 -0.37399381910301716 0.489307364258473" rpy="0 0 0"/>
+    <mass value="391.443910992165"/>
+    <inertia ixx="36.186873" iyy="96.457366" izz="131.154404" ixy="0.011967" iyz="-0.000188" ixz="0.179255"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_caster_wheel_1">
+  <inertial>
+    <origin xyz="-0.11974983374766845 0.14974959040375585 -0.09189950362871724" rpy="0 0 0"/>
+    <mass value="14.187470062292778"/>
+    <inertia ixx="0.211235" iyy="0.158995" izz="0.33893" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.573077 0.524042 -0.48515" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.573077 0.524042 -0.48515" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="middle_caster_wheel_1">
+  <inertial>
+    <origin xyz="0.0453328380277514 -0.0038973655470143087 -0.07254094379655307" rpy="0 0 0"/>
+    <mass value="20.651952587197"/>
+    <inertia ixx="0.249149" iyy="0.239992" izz="0.254538" ixy="0.006006" iyz="-0.010258" ixz="0.064877"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.453327 0.374292 -0.366286" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/middle_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.453327 0.374292 -0.366286" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/middle_caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="caster_wheel_1">
+  <inertial>
+    <origin xyz="-0.005510579030893359 -0.078807714226935 -4.4950142805144644e-07" rpy="0 0 0"/>
+    <mass value="3.826079549761852"/>
+    <inertia ixx="0.02062" iyy="0.032621" izz="0.020561" ixy="0.000843" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.573327 0.289655 -0.166286" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.573327 0.289655 -0.166286" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/caster_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_left_1">
+  <inertial>
+    <origin xyz="0.15579240284676796 0.08553540953199217 0.08475974994155999" rpy="0 0 0"/>
+    <mass value="58.91169692781864"/>
+    <inertia ixx="0.286332" iyy="0.864358" izz="0.811524" ixy="0.012933" iyz="-6.2e-05" ixz="0.003276"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.271923 0.097042 -0.263872" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/motor_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.271923 0.097042 -0.263872" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/motor_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_right_1">
+  <inertial>
+    <origin xyz="0.155792394738778 0.08553540953196681 0.08475976599541013" rpy="0 0 0"/>
+    <mass value="58.91169692781868"/>
+    <inertia ixx="0.286332" iyy="0.864359" izz="0.811524" ixy="0.012933" iyz="-6.2e-05" ixz="0.003276"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.271923 0.846042 -0.263872" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/motor_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.271923 0.846042 -0.263872" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/motor_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="axle_right_1">
+  <inertial>
+    <origin xyz="1.823948703738587e-07 0.09429761228514821 1.1883054118477787e-07" rpy="0 0 0"/>
+    <mass value="0.7285931451066853"/>
+    <inertia ixx="0.00702" iyy="0.000264" izz="0.007054" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.471923 0.846042 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/axle_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.471923 0.846042 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/axle_right_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="axle_left_1">
+  <inertial>
+    <origin xyz="1.823948407864151e-07 -0.09430238771486908 1.1883054085171096e-07" rpy="0 0 0"/>
+    <mass value="0.7285931451066853"/>
+    <inertia ixx="0.00702" iyy="0.000264" izz="0.007054" ixy="-0.0" iyz="0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.471923 -0.091558 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/axle_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.471923 -0.091558 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/axle_left_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="right_wheel_1">
+  <inertial>
+    <origin xyz="1.9728551642339553e-07 -0.18165888331531144 1.2376875552222444e-07" rpy="0 0 0"/>
+    <mass value="21.369378286059046"/>
+    <inertia ixx="0.84138" iyy="1.40935" izz="0.841425" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.471923 0.846042 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.471923 0.846042 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/right_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="left_wheel_1">
+  <inertial>
+    <origin xyz="1.6750421466538157e-07 0.1816580416067999 1.237687540789345e-07" rpy="0 0 0"/>
+    <mass value="21.369378286059046"/>
+    <inertia ixx="0.84138" iyy="1.40935" izz="0.841425" ixy="-0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.471923 -0.091558 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.471923 -0.091558 -0.351372" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/left_wheel_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_holder_v5_1">
+  <inertial>
+    <origin xyz="0.0016800208459691879 0.0009869416997400626 0.04269870411993992" rpy="0 0 0"/>
+    <mass value="106292559.8420903"/>
+    <inertia ixx="4351594.012726" iyy="4371948.874013" izz="8318690.995775" ixy="-9161.859601" iyz="3401.495628" ixz="8167.210252"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.334423 0.374042 -0.55315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/battery_holder_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.334423 0.374042 -0.55315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/battery_holder_v5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_driver_1">
+  <inertial>
+    <origin xyz="-0.23310400549211002 0.0588667848055746 -0.2975196633074899" rpy="0 0 0"/>
+    <mass value="11.312686597182003"/>
+    <inertia ixx="0.311147" iyy="0.455367" izz="0.259607" ixy="0.000406" iyz="0.018002" ixz="-0.002885"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.099423 -0.045958 -1.27315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/motor_driver_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.099423 -0.045958 -1.27315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/motor_driver_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_battery_1">
+  <inertial>
+    <origin xyz="0.07528439602044376 0.00023994759134682297 0.36926152571412807" rpy="0 0 0"/>
+    <mass value="115.26126056974613"/>
+    <inertia ixx="21.558117" iyy="15.25677" izz="15.880798" ixy="0.003125" iyz="-0.003641" ixz="-0.463029"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.296923 0.374042 -0.51315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.296923 0.374042 -0.51315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ras_camera_1">
+  <inertial>
+    <origin xyz="0.01391268653175004 0.10434306470190896 -0.10389239095408831" rpy="0 0 0"/>
+    <mass value="6.74286978494596"/>
+    <inertia ixx="0.049747" iyy="0.027218" izz="0.025635" ixy="2.5e-05" iyz="0.000336" ixz="0.000816"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.488158 0.479042 -1.51315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/ras_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.488158 0.479042 -1.51315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/ras_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="raspberry_1">
+  <inertial>
+    <origin xyz="0.05010062294763944 0.2513108945736187 -0.5363012144017173" rpy="0 0 0"/>
+    <mass value="19.7870540474059"/>
+    <inertia ixx="1.816485" iyy="1.336536" izz="0.576617" ixy="0.003406" iyz="-0.017501" ixz="0.138475"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.035577 0.619042 -1.37315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/raspberry_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.035577 0.619042 -1.37315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/raspberry_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="base_camera_1">
+  <inertial>
+    <origin xyz="-7.22659181939811e-08 -4.208437758279615e-07 0.45457683334028" rpy="0 0 0"/>
+    <mass value="48.35634401680473"/>
+    <inertia ixx="4.857732" iyy="4.389906" izz="0.649878" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.413158 0.374042 -0.51315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.413158 0.374042 -0.51315" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/base_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Rigid 16" type="fixed">
+  <origin xyz="0.573077 -0.524042 0.48515" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_caster_wheel_1"/>
+</joint>
+
+<joint name="base_wheel_joint_1" type="continuous">
+  <origin xyz="-0.11975 0.14975 -0.118864" rpy="0 0 0"/>
+  <parent link="base_caster_wheel_1"/>
+  <child link="middle_caster_wheel_1"/>
+  <axis xyz="-0.0 -0.0 -1.0"/>
+</joint>
+
+<joint name="base_wheel_joint_2" type="continuous">
+  <origin xyz="0.12 0.084637 -0.2" rpy="0 0 0"/>
+  <parent link="middle_caster_wheel_1"/>
+  <child link="caster_wheel_1"/>
+  <axis xyz="-0.069756 -0.997564 -0.0"/>
+</joint>
+
+<joint name="Rigid 19" type="fixed">
+  <origin xyz="-0.271923 -0.097042 0.263872" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor_left_1"/>
+</joint>
+
+<joint name="Rigid 20" type="fixed">
+  <origin xyz="-0.271923 -0.846042 0.263872" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="motor_right_1"/>
+</joint>
+
+<joint name="right_wheel_joint" type="continuous">
+  <origin xyz="-0.2 0.0 0.0875" rpy="0 0 0"/>
+  <parent link="motor_right_1"/>
+  <child link="axle_right_1"/>
+  <axis xyz="-0.0 1.0 0.0"/>
+</joint>
+
+<joint name="left_wheel_joint" type="continuous">
+  <origin xyz="-0.2 0.1886 0.0875" rpy="0 0 0"/>
+  <parent link="motor_left_1"/>
+  <child link="axle_left_1"/>
+  <axis xyz="-0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="Rigid 23" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="axle_right_1"/>
+  <child link="right_wheel_1"/>
+</joint>
+
+<joint name="Rigid 26" type="fixed">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="axle_left_1"/>
+  <child link="left_wheel_1"/>
+</joint>
+
+<joint name="Rigid 32" type="fixed">
+  <origin xyz="-0.0375 0.0 0.04" rpy="0 0 0"/>
+  <parent link="base_battery_1"/>
+  <child link="battery_holder_v5_1"/>
+</joint>
+
+<joint name="Rigid 33" type="fixed">
+  <origin xyz="0.1975 0.42 0.76" rpy="0 0 0"/>
+  <parent link="base_battery_1"/>
+  <child link="motor_driver_1"/>
+</joint>
+
+<joint name="Rigid 35" type="fixed">
+  <origin xyz="-0.296923 -0.374042 0.51315" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_battery_1"/>
+</joint>
+
+<joint name="Rigid 39" type="fixed">
+  <origin xyz="0.075 -0.105 1.0" rpy="0 0 0"/>
+  <parent link="base_camera_1"/>
+  <child link="ras_camera_1"/>
+</joint>
+
+<joint name="Rigid 40" type="fixed">
+  <origin xyz="0.3325 -0.245 0.86" rpy="0 0 0"/>
+  <parent link="base_battery_1"/>
+  <child link="raspberry_1"/>
+</joint>
+
+<joint name="Rigid 41" type="fixed">
+  <origin xyz="0.413158 -0.374042 0.51315" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="base_camera_1"/>
+</joint>
+
+</robot>
