@@ -20,6 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            "pid_control = car_py_pkg.pid_control:main",
         ],
     },
 )

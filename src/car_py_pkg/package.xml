@@ -7,6 +7,10 @@
   <maintainer email="hoangtu1404@2004gmail.com">tuchau</maintainer>
   <license>TODO: License declaration</license>
 
+  <depend>turtlesim</depend>
+  <depend>geometry_msgs.msg</depend>
+  <depend>rclpy</depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
