@@ -4,35 +4,36 @@
 <link name = "camera_link_optical"/>
 
 <joint name = "camera_optical_joint" type="fixed">
-    <origin xyz = "0 0 0" rpy ="${-pi/2} 0 ${-pi/2}"/>
+    <!-- <origin xyz = "0.15 0 0" rpy ="0 ${+pi/6} 0"/> -->
+    <origin xyz = "0.15 0 0" rpy ="0 0 0"/>
     <parent link = "ras_camera_1"/>
     <child link="camera_link_optical"/>
 </joint>
 
-<gazebo reference ="ras_camera_1">
+<gazebo reference ="camera_link_optical">
     
     <sensor name="camera_sensor" type="camera">
         <camera>
-            <horizontal_fov>1.3962634</horizontal_fov>
+            <horizontal_fov>1.085</horizontal_fov> <!-- 62.2 degrees = 1.085 rad -->
             <image>
-                <width>640</width>
-                <height>480</height>
+                <width>3280</width>
+                <height>2464</height>
                 <format>R8G8B8</format>
             </image>
             <clip>
-                <near>0.1</near>
+                <near>0.01</near> <!-- closer, better for small scenes -->
                 <far>100</far>
             </clip>
             <noise>
                 <type>gaussian</type>
                 <mean>0.0</mean>
-                <stddev>0.01</stddev>
+                <stddev>0.005</stddev> <!-- Less noise, PiCam is quite clean -->
             </noise>
             <optical_frame_id>camera_link_optical</optical_frame_id>
             <camera_info_topic>camera/camera_info</camera_info_topic>
         </camera>
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
+        <update_rate>30</update_rate> <!-- 30 FPS -->
         <visualize>true</visualize>
         <topic>camera/image_raw</topic>
     </sensor>

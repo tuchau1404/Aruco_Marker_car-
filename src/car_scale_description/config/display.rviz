@@ -8,6 +8,8 @@ Panels:
         - /Status1
         - /RobotModel1
         - /TF1
+        - /TF1/Frames1
+        - /TF1/Tree1
         - /Camera1
       Splitter Ratio: 0.5
     Tree Height: 418
@@ -163,45 +165,45 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         axle_left_1:
-          Value: true
+          Value: false
         axle_right_1:
-          Value: true
+          Value: false
         base_battery_1:
-          Value: true
+          Value: false
         base_camera_1:
-          Value: true
+          Value: false
         base_caster_wheel_1:
-          Value: true
+          Value: false
         base_footprint:
-          Value: true
+          Value: false
         base_link:
-          Value: true
+          Value: false
         battery_holder_v5_1:
-          Value: true
+          Value: false
         camera_link_optical:
           Value: true
         caster_wheel_1:
-          Value: true
+          Value: false
         left_wheel_1:
-          Value: true
+          Value: false
         middle_caster_wheel_1:
-          Value: true
+          Value: false
         motor_driver_1:
-          Value: true
+          Value: false
         motor_left_1:
-          Value: true
+          Value: false
         motor_right_1:
-          Value: true
+          Value: false
         odom:
-          Value: true
+          Value: false
         ras_camera_1:
-          Value: true
+          Value: false
         raspberry_1:
-          Value: true
+          Value: false
         right_wheel_1:
-          Value: true
+          Value: false
       Marker Scale: 0.5
       Name: TF
       Show Arrows: true
@@ -259,7 +261,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: base_footprint
     Frame Rate: 30
   Name: root
   Tools:
@@ -302,7 +304,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.8402727246284485
+      Distance: 3.0454299449920654
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -317,10 +319,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6097970008850098
+      Pitch: 0.8697967529296875
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.5103846192359924
+      Yaw: 5.303554058074951
     Saved: ~
 Window Geometry:
   Camera:
@@ -338,5 +340,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 201
-  Y: 69
+  X: 542
+  Y: 294

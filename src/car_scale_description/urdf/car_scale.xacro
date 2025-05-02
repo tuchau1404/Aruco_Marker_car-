@@ -1,12 +1,12 @@
 <?xml version="1.0" ?>
 <robot name="car_scale" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<xacro:include filename="$(find car_scale_description)/urdf/camera.xacro" />
+<xacro:include filename="$(find car_scale_description)/urdf/car_footprint.xacro" />
 
-  <xacro:include filename="$(find car_scale_description)/urdf/car_footprint.xacro" />
-  <xacro:include filename="$(find car_scale_description)/urdf/materials.xacro" />
-  <xacro:include filename="$(find car_scale_description)/urdf/car_scale.trans" />
-  <xacro:include filename="$(find car_scale_description)/urdf/car_scale.gazebo" />
-  <xacro:include filename="$(find car_scale_description)/urdf/camera.xacro" />
+<xacro:include filename="$(find car_scale_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find car_scale_description)/urdf/car_scale.trans" />
+<xacro:include filename="$(find car_scale_description)/urdf/car_scale.gazebo" />
 <link name="base_link">
   <inertial>
     <origin xyz="-0.3184486651094718 -0.37399381910301716 0.489307364258473" rpy="0 0 0"/>
@@ -280,27 +280,6 @@
   </collision>
 </link>
 
-<link name="ras_camera_1">
-  <inertial>
-    <origin xyz="0.01391268653175004 0.10434306470190896 -0.10389239095408831" rpy="0 0 0"/>
-    <mass value="6.74286978494596"/>
-    <inertia ixx="0.049747" iyy="0.027218" izz="0.025635" ixy="2.5e-05" iyz="0.000336" ixz="0.000816"/>
-  </inertial>
-  <visual>
-    <origin xyz="-0.488158 0.479042 -1.51315" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find car_scale_description)/meshes/ras_camera_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-    <material name="silver"/>
-  </visual>
-  <collision>
-    <origin xyz="-0.488158 0.479042 -1.51315" rpy="0 0 0"/>
-    <geometry>
-      <mesh filename="file://$(find car_scale_description)/meshes/ras_camera_1.stl" scale="0.001 0.001 0.001"/>
-    </geometry>
-  </collision>
-</link>
-
 <link name="raspberry_1">
   <inertial>
     <origin xyz="0.05010062294763944 0.2513108945736187 -0.5363012144017173" rpy="0 0 0"/>
@@ -324,9 +303,9 @@
 
 <link name="base_camera_1">
   <inertial>
-    <origin xyz="-7.22659181939811e-08 -4.208437758279615e-07 0.45457683334028" rpy="0 0 0"/>
-    <mass value="48.35634401680473"/>
-    <inertia ixx="4.857732" iyy="4.389906" izz="0.649878" ixy="0.0" iyz="-0.0" ixz="-0.0"/>
+    <origin xyz="0.006164669793814914 -4.2085712453898694e-07 0.28276397732579905" rpy="0 0 0"/>
+    <mass value="31.13802766340137"/>
+    <inertia ixx="1.738526" iyy="1.384342" izz="0.475699" ixy="0.0" iyz="-0.0" ixz="-0.072073"/>
   </inertial>
   <visual>
     <origin xyz="-0.413158 0.374042 -0.51315" rpy="0 0 0"/>
@@ -339,6 +318,27 @@
     <origin xyz="-0.413158 0.374042 -0.51315" rpy="0 0 0"/>
     <geometry>
       <mesh filename="file://$(find car_scale_description)/meshes/base_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="ras_camera_1">
+  <inertial>
+    <origin xyz="-0.04808730656914956 -0.0006569352980925203 0.021607609045916965" rpy="0 0 0"/>
+    <mass value="6.74286978494596"/>
+    <inertia ixx="0.049747" iyy="0.027218" izz="0.025635" ixy="2.5e-05" iyz="0.000336" ixz="0.000816"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.488158 0.374042 -1.18765" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/ras_camera_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.488158 0.374042 -1.18765" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find car_scale_description)/meshes/ras_camera_1.stl" scale="0.001 0.001 0.001"/>
     </geometry>
   </collision>
 </link>
@@ -419,22 +419,22 @@
   <child link="base_battery_1"/>
 </joint>
 
-<joint name="Rigid 39" type="fixed">
-  <origin xyz="0.075 -0.105 1.0" rpy="0 0 0"/>
-  <parent link="base_camera_1"/>
-  <child link="ras_camera_1"/>
-</joint>
-
 <joint name="Rigid 40" type="fixed">
   <origin xyz="0.3325 -0.245 0.86" rpy="0 0 0"/>
   <parent link="base_battery_1"/>
   <child link="raspberry_1"/>
 </joint>
 
-<joint name="Rigid 41" type="fixed">
+<joint name="Rigid 42" type="fixed">
   <origin xyz="0.413158 -0.374042 0.51315" rpy="0 0 0"/>
   <parent link="base_link"/>
   <child link="base_camera_1"/>
+</joint>
+
+<joint name="Rigid 45" type="fixed">
+  <origin xyz="0.075 0.0 0.6745" rpy="0 0 0"/>
+  <parent link="base_camera_1"/>
+  <child link="ras_camera_1"/>
 </joint>
 
 </robot>
